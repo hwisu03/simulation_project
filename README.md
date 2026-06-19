@@ -6,7 +6,7 @@ By simulating various scenarios, this study evaluates both **operational efficie
 
 ## 🧑‍💻 Author
 * **Hwisu Kim** (Industrial and Data Engineering)
-* Contact: [Your Email Address]
+* Contact: hwisu03@gmail.com
 
 ## 🎯 Key Features & Assumptions
 * **Behavior-Based Routing:** Customers choose chargers based on real-time queue lengths or pre-assigned priority.
