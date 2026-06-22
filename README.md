@@ -28,7 +28,7 @@ By simulating various scenarios, this study evaluates both **operational efficie
 * `src/`: Contains the Python simulation source code (`.ipynb`).
 
 ## 📝 Retrospective: Errata in Initial Proposal
-In the initial proposal (`docs/01_Proposal.pdf`), the System State for the $M/G/2/K$ queue was defined as $SS = (n, i_1, i_2)$, calling the next queued vehicle using the formula $m = \max(i_1, i_2) + 1$. 
+In the initial proposal (`docs/Simulation_Proposal.pdf`), the System State for the $M/G/2/K$ queue was defined as $SS = (n, i_1, i_2)$, calling the next queued vehicle using the formula $m = \max(i_1, i_2) + 1$. 
 While this mathematical logic is perfectly valid for an infinite capacity system where IDs are sequential, it contains a logical flaw in a space-constrained system ($K$). When a vehicle is lost due to capacity overflow (Balking), the ID sequence breaks, causing the $m+1$ logic to call a "ghost vehicle" that has already left the system. This insight highlights the necessity of using explicit Queue data structures rather than purely arithmetic ID calculations, a flaw that was successfully debugged and implemented in the final Python model.
 
 ## 🚧 Limitations and Future Work
