@@ -4,10 +4,6 @@
 This project focuses on optimizing the operations of an Electric Vehicle (EV) charging station at a highway rest area using **Discrete Event Simulation (DES)**. 
 By simulating various scenarios, this study evaluates both **operational efficiency** (waiting times, customer loss rate) and **economic viability** (cost-profit optimization) to determine the optimal infrastructure expansion strategy.
 
-## 🧑‍💻 Author
-* **Hwisu Kim** (Industrial and Data Engineering)
-* Contact: hwisu03@gmail.com
-
 ## 🛠 Tech Stack & Methodologies
 * **Language:** Python
 * **Methodologies:** Discrete Event Simulation (DES), Queueing Theory (Priority Queues, Balking/Blocking)
