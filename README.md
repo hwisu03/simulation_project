@@ -32,7 +32,6 @@ In the initial proposal (`docs/Simulation_Proposal.pdf`), the System State for t
 While this mathematical logic is perfectly valid for an infinite capacity system where IDs are sequential, it contains a logical flaw in a space-constrained system ($K$). When a vehicle is lost due to capacity overflow (Balking), the ID sequence breaks, causing the $m+1$ logic to call a "ghost vehicle" that has already left the system. This insight highlights the necessity of using explicit Queue data structures rather than purely arithmetic ID calculations, a flaw that was successfully debugged and implemented in the final Python model.
 
 ## 🚧 Limitations and Future Work
-
 * **Assumption of Homogeneous Traffic:** The current discrete-event simulation model assumes a Homogeneous Poisson Process for vehicle arrivals, utilizing a fixed arrival rate ($\lambda$). As a result, the incoming traffic was evenly distributed across the total simulation timeframe ($N=5,000$), preventing severe bottleneck phenomena.
 
 * **Future Implementation of NHPP:** In reality, highway charging stations experience extreme traffic surges during specific periods (e.g., peak commuting hours, national holidays). For future iterations, the model will be advanced by applying a **Non-homogeneous Poisson Process (NHPP)** with a time-varying arrival rate ($\lambda(t)$) to better capture and optimize realistic bottleneck scenarios.
