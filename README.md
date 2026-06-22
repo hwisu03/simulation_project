@@ -20,3 +20,6 @@ By simulating various scenarios, this study evaluates both **operational efficie
 ## 📂 Repository Structure
 * `docs/`: Contains the final project report and presentation slides (PDF).
 * `src/`: Contains the Python simulation source code (`.ipynb`).
+
+## 🚧 Limitations and Future WorkAssumption of Homogeneous Traffic:
+The current discrete-event simulation model assumes a Homogeneous Poisson Process for vehicle arrivals, utilizing a fixed arrival rate ($\lambda$). As a result, the incoming traffic was evenly distributed across the total simulation timeframe ($N=5,000$), preventing severe bottleneck phenomena.Future Implementation of NHPP: In reality, highway charging stations experience extreme traffic surges during specific periods (e.g., peak commuting hours, national holidays). For future iterations, the model will be advanced by applying a Non-homogeneous Poisson Process (NHPP) with a time-varying arrival rate $\lambda(t)$ to better capture and optimize realistic bottleneck scenarios.
