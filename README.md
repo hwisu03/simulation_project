@@ -23,8 +23,8 @@ By simulating various scenarios, this study evaluates both **operational efficie
 2. **Economic Viability:** Despite the operational benefits of Scenario 2, **Scenario 1 (Baseline: 4 Ultra-fast, 4 Fast chargers)** proved to be the most economically optimal choice. The high initial installation and maintenance costs of new chargers outweighed the marginal increase in revenue from additional customers.
 
 ## 📂 Repository Structure
-* `docs/01_Proposal.pdf`: Initial DES mathematical modeling and proposal.
-* `docs/02_Final_Presentation.pdf`: Final project report and presentation slides.
+* `docs/Simulation_Proposal.pdf`: Initial DES mathematical modeling and proposal.
+* `docs/Simulation_Project.pdf`: Final project report.
 * `src/`: Contains the Python simulation source code (`.ipynb`).
 
 ## 📝 Retrospective: Errata in Initial Proposal
