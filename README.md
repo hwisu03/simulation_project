@@ -5,7 +5,8 @@ This project focuses on optimizing the operations of an Electric Vehicle (EV) ch
 By simulating various scenarios, this study evaluates both **operational efficiency** (waiting times, customer loss rate) and **economic viability** (cost-profit optimization) to determine the optimal infrastructure expansion strategy.
 
 ##  Tech Stack & Methodologies
-* **Language:** Python
+* **Language:** Python (SimPy)
+* **Experimental Design:** 3 scenarios, 100 independent replications each
 * **Methodologies:** Discrete Event Simulation (DES), Queueing Theory (Priority Queues, Balking/Blocking)
 
 ##  Key Features & Assumptions
@@ -15,16 +16,24 @@ By simulating various scenarios, this study evaluates both **operational efficie
 * **Cost-Profit Optimization:** Balanced infrastructure expansion costs (depreciation and maintenance for Ultra-fast/Fast chargers) against expected revenue from charging fees and retail sales.
 
 ##  Key Findings
-1. **Operational Efficiency:** Scenario 2 (Adding 1 Ultra-fast charger) drastically reduced the average waiting time by **73%** (from 0.92 min to 0.25 min) and the customer loss rate by **97.1%**.
+1. **Operational Efficiency:** Scenario 2 (Adding 1 Ultra-fast charger) drastically reduced the average waiting time by **73%** (from 0.91 min to 0.25 min). The customer loss rate also fell (0.00083% → 0.00011%), although losses were already negligible in the baseline.
 2. **Economic Viability:** Despite the operational benefits of Scenario 2, **Scenario 1 (Baseline: 4 Ultra-fast, 4 Fast chargers)** proved to be the most economically optimal choice. The high initial installation and maintenance costs of new chargers outweighed the marginal increase in revenue from additional customers.
 
+| Scenario | Avg. wait $E[W_q]$ | Ultra-fast util. | Monthly net profit (KRW) |
+|---|---|---|---|
+| 1. Baseline (Ultra 4, Fast 4) | 0.91 min | 68.4% | **372,591,440** |
+| 2. Ultra 5, Fast 4 | 0.25 min | 56.4% | 367,486,161 |
+| 3. Ultra 4, Fast 5 | 0.84 min | 66.7% | 370,736,993 |
+
+*Averages over 100 replications per scenario.*
+
 ##  Repository Structure
-* `docs/Simulation_Proposal.pdf`: Initial DES mathematical modeling and proposal.
-* `docs/Simulation_Project.pdf`: Final project report.
-* `src/`: Contains the Python simulation source code (`.ipynb`).
+* [`docs/simulation_proposal.pdf`](docs/simulation_proposal.pdf): Initial DES mathematical modeling and proposal.
+* [`docs/simulation_project.pdf`](docs/simulation_project.pdf): Final project report.
+* [`src/EV_simulation_project.ipynb`](src/EV_simulation_project.ipynb): Python simulation source code.
 
 ##  Retrospective: Errata in Initial Proposal
-In the initial proposal (`docs/Simulation_Proposal.pdf`), the System State for the $M(t)/G/2/K$ queue was defined as $SS = (n, i_1, i_2)$, calling the next queued vehicle using the formula $m = \max(i_1, i_2) + 1$. 
+In the initial proposal (`docs/simulation_proposal.pdf`), the System State for the $M(t)/G/2/K$ queue was defined as $SS = (n, i_1, i_2)$, calling the next queued vehicle using the formula $m = \max(i_1, i_2) + 1$. 
 While this mathematical logic is perfectly valid for an infinite capacity system where IDs are sequential, it contains a logical flaw in a space-constrained system ($K$). When a vehicle is lost due to capacity overflow (Blocking), the ID sequence breaks, causing the $m+1$ logic to call a "ghost vehicle" that has already left the system. This insight highlights the necessity of using explicit Queue data structures rather than purely arithmetic ID calculations, a flaw that was successfully debugged and implemented in the final Python model.
 
 ##  Limitations and Future Work
